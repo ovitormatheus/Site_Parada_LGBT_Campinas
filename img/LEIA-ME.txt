@@ -1,0 +1,13 @@
+PASTA DE IMAGENS
+
+Coloque aqui as fotos do site, com estes nomes (formato .jpg):
+
+hero.jpg          -> foto principal do topo (pessoas da Parada)
+banner.jpg        -> foto do banner "Mais que uma comemoração..."
+presidente.jpg    -> foto do Douglas Miranda (Quem somos)
+doar.jpg          -> card "Doar"
+loja.jpg          -> card "Loja"
+voluntariado.jpg  -> card "Voluntariado"
+atracao1.jpg ... atracao6.jpg -> fotos das atrações
+
+Enquanto as fotos não existirem, o site mostra degradês coloridos no lugar.

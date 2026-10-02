@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quero Participar | APAC - Parada LGBTQIAPN+ de Campinas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- style.css: header, footer, botões e cores (iguais ao site principal) -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- participe.css: só o que é específico desta página -->
+  <link rel="stylesheet" href="css/participe.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       HEADER (igual ao do site principal; os links levam ao index.html)
+       ===================================================== -->
+  <header class="header">
+    <div class="header-conteudo">
+
+      <a href="index.html#inicio" class="header-logo">
+        <img src="img/logo_APAC.png" alt="">
+      </a>
+
+      <nav class="header-menu">
+        <a href="index.html#inicio" class="header-menu-link">Início</a>
+        <a href="index.html#apoie" class="header-menu-link">Loja</a>
+        <a href="index.html#quem-somos" class="header-menu-link">Quem somos</a>
+        <a href="index.html#rede-apoio" class="header-menu-link">Serviços</a>
+        <a href="galeria.html" class="header-menu-link">Galeria</a>
+      </nav>
+
+      <div class="header-acoes">
+        <input type="search" class="header-busca" placeholder="Buscar" aria-label="Buscar no site">
+        <a href="index.html#apoie" class="botao botao-preto">Apoie</a>
+      </div>
+
+    </div>
+    <div class="faixa-arco-iris"></div>
+  </header>
+
+
+  <!-- =====================================================
+       MAIN (conteúdo da página)
+       ===================================================== -->
+  <main class="pagina-participe">
+
+    <!-- ---------- 1. TÍTULO DA PÁGINA ---------- -->
+    <section class="participe-topo">
+      <p class="participe-topo-sobretitulo">PARADA LGBT+ DE CAMPINAS</p>
+      <h1 class="participe-topo-titulo">Quero Participar</h1>
+      <p class="participe-topo-descricao">
+        Inscreva-se e faça parte desse momento de<br>
+        <strong class="participe-topo-destaque">resistência e celebração.</strong>
+      </p>
+    </section>
+
+
+    <!-- ---------- 2. FORMULÁRIO DE CADASTRO ---------- -->
+    <section class="cadastro">
+      <form class="cadastro-form" id="formulario-cadastro" novalidate>
+
+        <!-- Escolha da função -->
+        <div class="cadastro-grupo">
+          <label class="cadastro-rotulo cadastro-rotulo-forte" for="campo-funcao">FUNÇÃO NO EVENTO</label>
+          <div class="cadastro-selecao">
+            <select class="cadastro-campo cadastro-campo-selecao" id="campo-funcao" name="funcao" required>
+              <option value="" selected disabled>Selecione sua função...</option>
+              <option value="vendedor-ambulante">Vendedor Ambulante</option>
+              <option value="atracao">Atração</option>
+              <option value="fotografo">Fotógrafo</option>
+              <option value="videomaker">Videomaker</option>
+              <option value="voluntario">Voluntário</option>
+              <option value="apoiador">Apoiador</option>
+              <option value="outro">Outro</option>
+            </select>
+            <span class="cadastro-selecao-seta">⌄</span>
+          </div>
+          <p class="cadastro-erro" id="erro-funcao"></p>
+        </div>
+
+        <!-- Dados da pessoa -->
+        <h2 class="cadastro-subtitulo">SEUS DADOS</h2>
+
+        <div class="cadastro-grupo">
+          <label class="cadastro-rotulo" for="campo-nome">Nome e Sobrenome</label>
+          <input class="cadastro-campo cadastro-campo-nome" type="text" id="campo-nome" name="nome"
+                 placeholder="Ex: Maria da Silva" autocomplete="name" required>
+          <p class="cadastro-erro" id="erro-nome"></p>
+        </div>
+
+        <div class="cadastro-grupo">
+          <label class="cadastro-rotulo" for="campo-telefone">Telefone / WhatsApp</label>
+          <input class="cadastro-campo cadastro-campo-telefone" type="tel" id="campo-telefone" name="telefone"
+                 placeholder="(19) 99999-9999" autocomplete="tel" inputmode="numeric" maxlength="15" required>
+          <p class="cadastro-erro" id="erro-telefone"></p>
+        </div>
+
+        <div class="cadastro-grupo">
+          <label class="cadastro-rotulo" for="campo-email">E-mail</label>
+          <input class="cadastro-campo cadastro-campo-email" type="email" id="campo-email" name="email"
+                 placeholder="seuemail@exemplo.com" autocomplete="email" required>
+          <p class="cadastro-erro" id="erro-email"></p>
+        </div>
+
+        <button type="submit" class="cadastro-botao">FINALIZAR CADASTRO</button>
+        <p class="cadastro-aviso">Ao se cadastrar, você concorda em receber comunicações sobre o evento.</p>
+
+        <!-- Mensagem que aparece depois do envio -->
+        <p class="cadastro-sucesso" id="sucesso-cadastro" hidden>
+          ✔ Cadastro enviado! Em breve a equipe da APAC entra em contato.
+        </p>
+      </form>
+    </section>
+
+
+    <!-- ---------- 3. SUGESTÕES E FEEDBACK ---------- -->
+    <section class="feedback">
+      <form class="feedback-form" id="formulario-feedback" novalidate>
+
+        <h2 class="feedback-titulo">SUGESTÕES E FEEDBACK</h2>
+
+        <label class="feedback-rotulo" for="campo-comentario">Deixe sua sugestão ou comentário sobre o site ou o evento</label>
+        <textarea class="feedback-campo" id="campo-comentario" name="comentario" rows="4"
+                  placeholder="Escreva aqui suas sugestões, ideias ou comentários..."></textarea>
+
+        <!-- Avaliação por estrelas (de 0 a 5) -->
+        <p class="feedback-avaliacao-rotulo" id="rotulo-avaliacao">Avaliação geral</p>
+        <div class="feedback-estrelas" id="estrelas" role="radiogroup" aria-labelledby="rotulo-avaliacao">
+          <button type="button" class="feedback-estrela" data-valor="1" aria-label="1 estrela">★</button>
+          <button type="button" class="feedback-estrela" data-valor="2" aria-label="2 estrelas">★</button>
+          <button type="button" class="feedback-estrela" data-valor="3" aria-label="3 estrelas">★</button>
+          <button type="button" class="feedback-estrela" data-valor="4" aria-label="4 estrelas">★</button>
+          <button type="button" class="feedback-estrela" data-valor="5" aria-label="5 estrelas">★</button>
+        </div>
+        <div class="feedback-escala">
+          <span>0 — Muito ruim</span>
+          <span class="feedback-nota" id="nota-escolhida" aria-live="polite"></span>
+          <span>5 — Ótimo</span>
+        </div>
+
+        <button type="submit" class="feedback-botao">ENVIAR FEEDBACK</button>
+
+        <p class="feedback-sucesso" id="sucesso-feedback" hidden>
+          ✔ Obrigado! Seu feedback foi enviado.
+        </p>
+        <p class="cadastro-erro" id="erro-feedback"></p>
+      </form>
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER (igual ao do site principal)
+       ===================================================== -->
+  <footer class="footer">
+    <div class="faixa-arco-iris"></div>
+
+    <div class="footer-conteudo">
+
+      <div class="footer-coluna footer-coluna-marca">
+        <a href="index.html" class="header-logo">
+          <img src="img/Logo_APAC_Letra_Branca.png" alt="">
+        </a>
+        <p class="footer-descricao">Associação da Parada e Apoio LGBT de Campinas. Cores que resistem, vozes que transformam.</p>
+      </div>
+
+      <div class="footer-coluna">
+        <h3 class="footer-titulo">Navegue</h3>
+        <a href="index.html" class="footer-link">Início</a>
+        <a href="index.html#sobre" class="footer-link">Sobre</a>
+        <a href="index.html#eventos" class="footer-link">Eventos 2027</a>
+        <a href="index.html#quem-somos" class="footer-link">Quem somos</a>
+      </div>
+
+      <div class="footer-coluna">
+        <h3 class="footer-titulo">Participe</h3>
+        <a href="participe.html" class="footer-link">Cadastro</a>
+        <a href="index.html#apoie" class="footer-link">Doar</a>
+      </div>
+
+      <div class="footer-coluna">
+        <h3 class="footer-titulo">Contato</h3>
+        <span class="footer-link">contato@apac.org.br</span>
+        <span class="footer-link">Campinas - SP</span>
+        <div class="footer-redes">
+          <a href="#" class="footer-rede" aria-label="Instagram">IG</a>
+          <a href="#" class="footer-rede" aria-label="Facebook">FB</a>
+          <a href="#" class="footer-rede" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="footer-copyright">© 2027 APAC - Associação da Parada e Apoio LGBT de Campinas. Projeto integrador.</p>
+  </footer>
+
+  <script src="js/participe.js"></script>
+</body>
+</html>

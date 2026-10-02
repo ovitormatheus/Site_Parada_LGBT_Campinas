@@ -1,0 +1,313 @@
+/* =========================================================
+   PÁGINA "QUERO PARTICIPAR" (participe.html)
+   Este arquivo vem DEPOIS do style.css, então usa as mesmas
+   cores (--cor-...) e o mesmo header/footer.
+
+   Organização:
+   1. Fundo e largura da página
+   2. Título da página
+   3. Formulário de cadastro
+   4. Sugestões e feedback (com estrelas)
+   5. Responsivo
+   ========================================================= */
+
+
+/* ---------- 1. FUNDO E LARGURA DA PÁGINA ---------- */
+
+/* ANÉIS DE ARCO-ÍRIS DO FUNDO
+   Para usar a imagem do Figma, salve como  img/form-fundo.png.
+   Enquanto ela não existir, aparecem os anéis pastel feitos só com CSS. */
+.pagina-participe {
+  padding: 50px 24px 80px;
+  background:
+    url("/img/fundo_formulario.png") center top / cover no-repeat,
+    var(--cor-branco);
+}
+
+
+/* ---------- 2. TÍTULO DA PÁGINA ---------- */
+.participe-topo {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.participe-topo-sobretitulo {
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin-bottom: 4px;
+}
+
+.participe-topo-titulo {
+  font-size: 44px;
+  font-weight: 800;
+  color: #1f0f4d;
+  line-height: 1.15;
+}
+
+.participe-topo-descricao {
+  margin-top: 8px;
+  font-size: 17px;
+  color: #5b2aa8;
+}
+
+.participe-topo-destaque {
+  font-weight: 700;
+  color: #3a1070;
+}
+
+
+/* ---------- 3. FORMULÁRIO DE CADASTRO ---------- */
+.cadastro-form,
+.feedback-form {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.cadastro-grupo {
+  margin-bottom: 18px;
+}
+
+.cadastro-rotulo {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.cadastro-rotulo-forte {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.cadastro-subtitulo {
+  margin: 30px 0 14px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Campo base: usado pelo select e pelos 3 inputs */
+.cadastro-campo {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  font-family: var(--fonte);
+  font-size: 14px;
+  color: var(--cor-preto);
+  opacity: 1;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.cadastro-campo::placeholder {
+  color: #a9a9b3;
+}
+
+.cadastro-campo:focus {
+  outline: none;
+  border-color: #8a5cf0;
+}
+
+/* Cada campo tem sua cor suave, como no Figma */
+.cadastro-campo-selecao  { background: #e6f1f9; border-color: #c2d9ea; }
+.cadastro-campo-nome     { background: #fde3e5; border-color: #f7c1c6; }
+.cadastro-campo-telefone { background: #fdebe0; border-color: #f8d2bb; }
+.cadastro-campo-email    { background: #fcf8c8; border-color: #efe590; }
+
+/* Select: tira a seta padrão do navegador e usa a nossa (⌄) */
+.cadastro-selecao {
+  position: relative;
+}
+
+.cadastro-campo-selecao {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 48px;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.cadastro-selecao-seta {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-65%);
+  font-size: 20px;
+  color: #555;
+  pointer-events: none;   /* o clique "atravessa" a seta e abre o select */
+}
+
+/* Mensagem de erro (aparece só quando preenchem errado) */
+.cadastro-erro {
+  min-height: 0;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #c62828;
+}
+
+.cadastro-campo.com-erro {
+  border-color: #c62828;
+}
+
+.cadastro-botao {
+  display: block;
+  width: 100%;
+  margin-top: 26px;
+  padding: 16px;
+  border: none;
+  border-radius: 30px;
+  font-family: var(--fonte);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--cor-branco);
+  background: linear-gradient(90deg, #c44df0, #6a7ff5);
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.cadastro-botao:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.cadastro-aviso {
+  margin-top: 16px;
+  font-size: 11px;
+  text-align: center;
+  color: #444;
+}
+
+.cadastro-sucesso,
+.feedback-sucesso {
+  margin-top: 18px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  color: #1b5e20;
+  background: #dff3e0;
+}
+
+
+/* ---------- 4. SUGESTÕES E FEEDBACK ---------- */
+.feedback {
+  margin-top: 80px;
+}
+
+.feedback-form {
+  padding-top: 30px;
+  border-top: 1px solid #e3e3e8;
+}
+
+.feedback-titulo {
+  margin-bottom: 18px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.feedback-rotulo {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.feedback-campo {
+  width: 100%;
+  min-height: 120px;
+  padding: 14px 16px;
+  border: 1px solid #c2d9ea;
+  border-radius: 10px;
+  font-family: var(--fonte);
+  font-size: 14px;
+  background: #e6f1f9;
+  resize: vertical;
+}
+
+.feedback-campo::placeholder {
+  color: #a9a9b3;
+}
+
+.feedback-campo:focus {
+  outline: none;
+  border-color: #8a5cf0;
+}
+
+.feedback-avaliacao-rotulo {
+  margin-top: 34px;
+  font-size: 13px;
+}
+
+/* Estrelas: ficam espalhadas pela largura do formulário */
+.feedback-estrelas {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 49px;
+}
+
+.feedback-estrela {
+  border: none;
+  background: none;
+  font-size: 38px;
+  line-height: 1;
+  color: #cfcfd6;           /* cinza = apagada */
+  cursor: pointer;
+  transition: transform 0.15s, color 0.15s;
+}
+
+.feedback-estrela:hover {
+  transform: scale(1.2);
+}
+
+/* A classe "acesa" é colocada pelo JavaScript */
+.feedback-estrela.acesa {
+  color: #f7b500;
+}
+
+.feedback-escala {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #666;
+}
+
+.feedback-nota {
+  font-size: 12px;
+  font-weight: 700;
+  color: #5b2aa8;
+}
+
+.feedback-botao {
+  display: block;
+  width: 100%;
+  margin-top: 22px;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+  font-family: var(--fonte);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--cor-branco);
+  background: rgb(248, 159, 237);   /* rosa claro, sem degradê */
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.feedback-botao:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+}
+
+
+/* ---------- 5. RESPONSIVO ---------- */
+@media (max-width: 600px) {
+  .pagina-participe { padding: 36px 16px 60px; }
+  .participe-topo-titulo { font-size: 34px; }
+  .feedback-estrelas { padding: 7px 8px; }
+  .feedback-estrela { font-size: 32px; }
+  .feedback-rotulo { font-size: 16px; }
+}
