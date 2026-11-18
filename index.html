@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APAC | Parada LGBTQIAPN+ de Campinas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       HEADER (topo do site)
+       ===================================================== -->
+  <header class="header">
+    <div class="header-conteudo">
+
+      <a href="index.html" class="header-logo">
+        <img src="img/logo_APAC.png" alt="">
+      </a>
+
+      <nav class="header-menu">
+        <a href="#inicio" class="header-menu-link">Início</a>
+        <a href="#apoie" class="header-menu-link">Loja</a>
+        <a href="#quem-somos" class="header-menu-link">Quem somos</a>
+        <a href="#rede-apoio" class="header-menu-link">Serviços</a>
+        <a href="galeria.html" class="header-menu-link">Galeria</a>
+      </nav>
+
+      <div class="header-acoes">
+        <input type="search" class="header-busca" placeholder="Buscar" aria-label="Buscar no site">
+        <a href="participe.html" class="botao botao-preto">Apoie</a>
+      </div>
+
+    </div>
+    <div class="faixa-arco-iris"></div>
+  </header>
+
+
+  <!-- =====================================================
+       MAIN (conteúdo principal)
+       ===================================================== -->
+  <main class="main">
+
+    <!-- ---------- 1. HERO (banner principal) ---------- -->
+
+    <section class="hero" id="inicio">
+
+      <!-- Vídeo de fundo (toca sozinho, sem som, em looping) -->
+      <video class="hero-video" autoplay muted loop playsinline preload="auto"
+            poster="video/banner.mp4" aria-hidden="true">
+        <source src="video/banner.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-filtro"></div>
+
+      <div class="hero-imagem"><img src="img/Banner.png" alt=""></div>
+
+      <div class="hero-texto">
+        <p class="hero-sobretitulo">PARADA LGBTQIAPN+ DE CAMPINAS</p>
+        <h1 class="hero-titulo">
+          A CIDADE É <br>NOSSA
+          <img src="img/TAMBÉM.png" alt="">
+        </h1>
+        <p class="hero-descricao">
+          A Parada LGBT+ de Campinas é um manifesto político, cultural e de celebração.
+          É a nossa voz nas ruas, por mais respeito, direitos e representatividade.
+        </p>
+        <div class="hero-botoes">
+          <a href="#sobre" class="botao botao-preto">Saiba mais</a>
+          <a href="#eventos" class="botao botao-contorno">Ver programação</a>
+        </div>
+      </div>
+    </section>
+    <div class="faixa-arco-iris"></div>
+
+
+    <!-- ---------- 2. CONTADOR REGRESSIVO ---------- -->
+    <section class="contador">
+      <div class="contador-caixa">
+        <div class="contador-topo">
+          <div class="contador-titulo-area">
+            <h2 class="contador-titulo">Parada LGBTQIAPN+ de Campinas</h2>
+            <p class="contador-frase">Mais que um evento, um futuro mais diverso.</p>
+          </div>
+          <div class="contador-data">
+            <strong class="contador-data-dia">27 de Junho de 2027</strong>
+            <span class="contador-data-local">Centro de Campinas</span>
+          </div>
+        </div>
+
+        <div class="contador-numeros">
+          <div class="contador-bloco contador-bloco-vermelho">
+            <span class="contador-valor" id="contador-dias">00</span>
+            <span class="contador-legenda">Dias</span>
+          </div>
+          <span class="contador-separador">:</span>
+          <div class="contador-bloco contador-bloco-laranja">
+            <span class="contador-valor" id="contador-horas">00</span>
+            <span class="contador-legenda">Horas</span>
+          </div>
+          <span class="contador-separador">:</span>
+          <div class="contador-bloco contador-bloco-azul">
+            <span class="contador-valor" id="contador-minutos">00</span>
+            <span class="contador-legenda">Minutos</span>
+          </div>
+          <span class="contador-separador">:</span>
+          <div class="contador-bloco contador-bloco-roxo">
+            <span class="contador-valor" id="contador-segundos">00</span>
+            <span class="contador-legenda">Segundos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------- 3. BANNER DE RESISTÊNCIA ---------- -->
+    <section class="banner-resistencia">
+      <div class="banner-resistencia-conteudo">
+        <h2 class="banner-resistencia-titulo">
+          Mais que uma comemoração,<br>
+          um ato de <span class="banner-resistencia-destaque">RESISTÊNCIA!</span>
+        </h2>
+        <a href="#sobre" class="botao botao-branco">Conheça a Parada</a>
+      </div>
+    </section>
+
+
+    <!-- ---------- 4. QUERO PARTICIPAR ---------- -->
+    <section class="participe" id="participe">
+      <div class="participe-caixa">
+        <h2 class="participe-titulo">Quero participar</h2>
+
+        <div class="participe-cartoes">
+          <a href="participe.html" class="cartao-colorido cartao-vermelho">
+            <img src="img/Simbolo_Ambulantes.png" alt="" width="40px">
+            <span class="cartao-colorido-seta">→</span>
+            <strong class="cartao-colorido-titulo">AMBULANTES</strong>
+            <span class="cartao-colorido-texto">Credenciamento e editais</span>
+          </a>
+          <a href="participe.html" class="cartao-colorido cartao-laranja">
+            <img src="img/Simbolo_artistas.png" alt="" width="40px">
+            <span class="cartao-colorido-seta">→</span>
+            <strong class="cartao-colorido-titulo">ARTISTAS</strong>
+            <span class="cartao-colorido-texto">Envie seu portfólio</span>
+          </a>
+          <a href="participe.html" class="cartao-colorido cartao-azul">
+            <img src="img/Simbolo_voluntariado.png" alt="" width="40px">
+            <span class="cartao-colorido-seta">→</span>
+            <strong class="cartao-colorido-titulo">VOLUNTARIADO</strong>
+            <span class="cartao-colorido-texto">Faça parte da Parada</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------- 5. PERCURSO DOS TRIOS ---------- -->
+    <section class="percurso">
+      <h2 class="titulo-secao-simples">PERCURSO DOS TRIOS</h2>
+
+      <div class="percurso-conteudo">
+        <ul class="percurso-lista">
+          <li class="percurso-item"><span class="percurso-bolinha bolinha-vermelha"></span>Avenida Francisco Glicério (com concentração no Largo do Rosário)</li>
+          <li class="percurso-item"><span class="percurso-bolinha bolinha-laranja"></span>Praça Guilherme de Almeida</li>
+          <li class="percurso-item"><span class="percurso-bolinha bolinha-amarela"></span>Avenida Doutor Moraes Salles</li>
+          <li class="percurso-item"><span class="percurso-bolinha bolinha-verde"></span>Avenida Irmã Serafina</li>
+          <li class="percurso-item"><span class="percurso-bolinha bolinha-azul"></span>Avenida Anchieta</li>
+          <li class="percurso-item"><span class="percurso-bolinha bolinha-roxa"></span>Rua Benjamin Constant</li>
+        </ul>
+
+        <!-- Troque este bloco por um <iframe> do Google Maps se quiser o mapa real -->
+        <div class="percurso-mapa">
+          <span class="percurso-mapa-texto">Mapa do percurso</span>
+        </div>
+      </div>
+    </section>
+    <div class="faixa-arco-iris"></div>
+
+
+    <!-- ---------- 6. SOBRE A ASSOCIAÇÃO ---------- -->
+    <!-- A faixa de arco-íris é o FUNDO desta seção (veja .sobre no CSS: img/sobre-faixa.png).
+         A menina e o menino são imagens separadas, em áreas reservadas. -->
+    <section class="sobre" id="sobre">
+      <div class="sobre-conteudo">
+
+        <!-- Título + texto principal (canto superior esquerdo) -->
+        <div class="sobre-intro">
+          <h2 class="sobre-titulo">SOBRE A ASSOCIAÇÃO</h2>
+          <p class="sobre-texto">
+            A Associação da Parada e Apoio LGBT de Campinas (APAC) é uma organização da sociedade civil,
+            sem fins lucrativos, formada por militantes, ativistas, profissionais de diversas áreas e
+            membros da comunidade. Nossa atuação é pautada na defesa intransigente dos direitos humanos,
+            na promoção da cidadania e na visibilidade da população LGBTQIAPN+ em Campinas e em toda a
+            sua Região Metropolitana. Somos um espaço de acolhimento, articulação política e fortalecimento
+            coletivo. Acreditamos que a visibilidade é uma ferramenta fundamental de transformação social
+            e de combate a todas as formas de preconceito, LGBTfobia e discriminação.
+          </p>
+        </div>
+
+        <!-- Menina com a bandeira + caixinha de citação (canto superior direito) -->
+        <div class="sobre-menina">
+          <div class="sobre-menina-imagem" role="img" aria-label="Ilustração de uma menina com bandeira trans sobre o arco-íris"></div>
+          <div class="sobre-citacao">
+            <strong>"Cores que resistem, vozes que transformam."</strong>
+            <span>Junte-se a nós nessa construção por uma Campinas mais justa, plural e segura para todos, todas e todes.</span>
+          </div>
+        </div>
+
+        <!-- Nossa Missão (meio, esquerda) -->
+        <div class="sobre-missao">
+          <h3 class="sobre-subtitulo">Nossa Missão</h3>
+          <span class="linha-arco-iris"></span>
+          <p class="sobre-texto">
+            Promover a inclusão social, a equidade e o respeito à diversidade sexual e de gênero por meio
+            da mobilização cultural, da incidência política e da oferta de suporte à comunidade LGBTQIAPN+,
+            assegurando que cada indivíduo possa existir e expressar sua identidade com dignidade,
+            segurança e orgulho.
+          </p>
+        </div>
+
+        <!-- Menino com a bandeira (embaixo, esquerda) -->
+        <div class="sobre-menino">
+          <div class="sobre-menino-imagem" role="img" aria-label="Ilustração de um menino com bandeira sobre o arco-íris"></div>
+        </div>
+
+        <!-- O Que Realizamos (embaixo, direita) -->
+        <div class="sobre-realizamos">
+          <h3 class="sobre-subtitulo2">O Que Realizamos</h3>
+          <span class="linha-arco-iris2"></span>
+          <p class="sobre-texto">
+            A Associação é amplamente conhecida por coordenar a Parada do Orgulho LGBTQIAPN+ de Campinas —
+            reconhecida como a maior manifestação do gênero no interior do país. Ao longo de décadas de
+            história, o evento consolidou-se como um marco no calendário oficial do estado de São Paulo,
+            unindo a alegria da celebração cultural à força da reivindicação política.
+          </p>
+        </div>
+
+        <a href="#quem-somos" class="botao botao-preto sobre-botao">Nos conheça!</a>
+      </div>
+    </section>
+
+
+    <!-- ---------- 7. EVENTOS 2027 ---------- -->
+    <section class="eventos" id="eventos">
+      <div class="secao-largura">
+        <h2 class="titulo-secao">Eventos 2027</h2>
+        <span class="linha-arco-iris"></span>
+
+        <div class="eventos-caixa">
+          <div class="evento-cartao cartao-vermelho">
+            <div class="evento-data"><strong>13/</strong><strong>06</strong></div>
+            <p class="evento-nome">24ª Gincana da Diversidade</p>
+          </div>
+          <div class="evento-cartao cartao-laranja">
+            <div class="evento-data"><strong>19/</strong><strong>06</strong></div>
+            <p class="evento-nome">11º Arraiá da Diversidade</p>
+          </div>
+          <div class="evento-cartao cartao-azul">
+            <div class="evento-data"><strong>25/</strong><strong>06</strong></div>
+            <p class="evento-nome">20º Big Juice</p>
+          </div>
+          <div class="evento-cartao cartao-roxo">
+            <div class="evento-data"><strong>26/</strong><strong>06</strong></div>
+            <p class="evento-nome">Pré Parada Oficial</p>
+          </div>
+          <div class="evento-cartao cartao-amarelo">
+            <div class="evento-data"><strong>27/</strong><strong>06</strong></div>
+            <p class="evento-nome">27ª Parada LGBT+</p>
+          </div>
+          <div class="evento-cartao cartao-verde">
+            <div class="evento-data"><strong>27/</strong><strong>06</strong></div>
+            <p class="evento-nome">Power After Oficial</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------- 8. REDE DE APOIO E CIDADANIA ---------- -->
+    <section class="rede-apoio" id="rede-apoio">
+      <div class="secao-largura">
+        <h2 class="titulo-secao">Rede de Apoio<br>e cidadania</h2>
+        <span class="linha-arco-iris"></span>
+
+        <div class="rede-apoio-caixa">
+          <p class="rede-apoio-intro">Aqui você encontra serviços e contatos úteis e seguros para garantir seus direitos e bem-estar</p>
+
+          <div class="rede-apoio-cartoes">
+            <a href="#" class="cartao-colorido cartao-vermelho">
+              <span class="cartao-colorido-seta">⟶</span>
+              <strong class="cartao-colorido-titulo">DIREITOS</strong>
+              <span class="cartao-colorido-texto">Credenciamento e editais</span>
+            </a>
+            <a href="#" class="cartao-colorido cartao-laranja">
+              <span class="cartao-colorido-seta">⟶</span>
+              <strong class="cartao-colorido-titulo">EMPREGABILIDADE</strong>
+              <span class="cartao-colorido-texto">Envie seu portfólio</span>
+            </a>
+            <a href="#" class="cartao-colorido cartao-azul">
+              <span class="cartao-colorido-seta">⟶</span>
+              <strong class="cartao-colorido-titulo">COMÉRCIO AMIGO</strong>
+              <span class="cartao-colorido-texto">Faça parte da Parada</span>
+            </a>
+            <a href="#" class="cartao-colorido cartao-vermelho">
+              <span class="cartao-colorido-seta">⟶</span>
+              <strong class="cartao-colorido-titulo">REDE DE APOIO</strong>
+              <span class="cartao-colorido-texto">Credenciamento e editais</span>
+            </a>
+            <a href="#" class="cartao-colorido cartao-laranja">
+              <span class="cartao-colorido-seta">⟶</span>
+              <strong class="cartao-colorido-titulo">CULTURA</strong>
+              <span class="cartao-colorido-texto">Envie seu portfólio</span>
+            </a>
+            <a href="#" class="cartao-colorido cartao-azul">
+              <span class="cartao-colorido-seta">⟶</span>
+              <strong class="cartao-colorido-titulo">DENÚNCIA</strong>
+              <span class="cartao-colorido-texto">Faça parte da Parada</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------- 9. QUEM SOMOS ---------- -->
+    <section class="quem-somos" id="quem-somos">
+      <div class="secao-largura">
+        <h2 class="titulo-secao">Quem somos</h2>
+        <span class="linha-arco-iris"></span>
+
+        <div class="quem-somos-caixa">
+
+          <figure class="quem-somos-foto">
+            <span class="quem-somos-moldura moldura-azul"></span>
+            <span class="quem-somos-moldura moldura-laranja"></span>
+            <span class="quem-somos-moldura moldura-vermelha"></span>
+            <div class="quem-somos-foto-imagem"></div>
+            <figcaption class="quem-somos-foto-legenda">
+              <strong>Douglas Holanda</strong>
+              <span>Presidente da A.P.A.C.</span>
+            </figcaption>
+          </figure>
+
+          <div class="quem-somos-texto">
+            <p>
+              Ativista de longa data e figura central na articulação dos direitos humanos e da cidadania
+              no interior paulista, Douglas Holanda está à frente da presidência da APAC, conduzem com
+              firmeza e diálogo a missão de dar visibilidade, voz e segurança à população LGBTQIAN+ de
+              Campinas e região.
+            </p>
+            <p>
+              Sua gestão é marcada pelo fortalecimento do diálogo com a sociedade civil e o poder público,
+              pela expansão das pautas de conscientização e pela consolidação da Parada do Orgulho
+              LGBTQIAPN+ de Campinas como um dos maiores e mais importantes eventos políticos e culturais
+              do estado. Sob sua liderança, a Associação tem ampliado debates essenciais — abordando desde
+              a urgência de políticas públicas efetivas de saúde e segurança até a interseccionalidade, o
+              combate à LGBTfobia e a valorização da memória e da longevidade dentro da comunidade. Para
+              Douglas, o ativismo na APAC representa um compromisso coletivo irrevogável: garantir que cada
+              pessoa LGBTQIAPN+ possa existir, ocupar os espaços públicos e viver com plena dignidade e orgulho.
+            </p>
+          </div>
+
+          <div class="quem-somos-links">
+            <p class="quem-somos-links-titulo">Entrevistas na íntegra.</p>
+            <a href="https://horacampinas.com.br/douglas-holanda-da-busca-por-espaco-a-presidencia-da-parada-lgbt/" class="quem-somos-link" target="_blank" rel="noopener">https://horacampinas.com.br/douglas-holanda-da-busca-por-espaco-a-presidencia-da-parada-lgbt/</a>
+            <a href="https://www.portalporque.com.br/campinas/maior-parada-lgbt-do-interior-celebra-25a-edicao-em-campinas-no-domingo-29-com-tema-sobre-envelhecimento-e-memoria/" class="quem-somos-link" target="_blank" rel="noopener">https://www.portalporque.com.br/campinas/maior-parada-lgbt-do-interior-celebra-25a-edicao-em-campinas-no-domingo-29-com-tema-sobre-envelhecimento-e-memoria/</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------- 10. APOIE-NOS ---------- -->
+    <section class="apoie" id="apoie">
+      <div class="secao-largura">
+        <h2 class="titulo-secao">Apoie-nos!</h2>
+        <span class="linha-arco-iris"></span>
+
+        <div class="apoie-cartoes">
+          <a href="#" class="apoie-cartao">
+            <div class="apoie-cartao-imagem imagem-doar"></div>
+            <strong class="apoie-cartao-titulo">DOAR</strong>
+            <p class="apoie-cartao-texto">Apoie a comunidade LGBTQIA+ e faça a diferença com a sua doação.</p>
+          </a>
+          <a href="#" class="apoie-cartao">
+            <div class="apoie-cartao-imagem imagem-loja"></div>
+            <strong class="apoie-cartao-titulo">LOJA</strong>
+            <p class="apoie-cartao-texto">Compre itens exclusivos da nossa loja oficial de acessórios da Parada.</p>
+          </a>
+          <a href="#" class="apoie-cartao">
+            <div class="apoie-cartao-imagem imagem-voluntariado"></div>
+            <strong class="apoie-cartao-titulo">VOLUNTARIADO</strong>
+            <p class="apoie-cartao-texto">Os voluntários são a base do nosso trabalho para apoiar a comunidade.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------- 11. APOIADORES ---------- -->
+    <section class="apoiadores">
+      <div class="secao-largura">
+        <h2 class="titulo-secao-centro">Apoiadores</h2>
+
+        <!-- Troque os textos por <img src="img/logo-...png"> quando tiver os logos -->
+        <div class="apoiadores-faixa">
+          <img src="img/logo_campchopp.png" alt="">
+          <img src="img/logo_donatella.png" alt="">
+          <img src="img/logo_caos.png" alt="">
+          <img src="img/logo_fikabar.png" alt="">
+          <img src="img/logo_felina.png" alt="">
+          <img src="img/logo_club88.png" alt="">
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ---------- 12. ATRAÇÕES (com rolagem horizontal) ---------- -->
+    <section class="atracoes">
+      <h2 class="titulo-secao-centro">Atrações Parada 2026</h2>
+      <span class="linha-arco-iris linha-arco-iris-larga"></span>
+
+      <!-- Esta é a área com a BARRA DE ROLAGEM HORIZONTAL destacada -->
+      <div class="atracoes-rolagem">
+        <article class="atracao-cartao">
+          <div class="atracao-foto foto-1"></div>
+          <strong class="atracao-nome">ERIKA HILTON</strong>
+          <p class="atracao-texto">Confira a participação na Parada 2026.</p>
+        </article>
+        <article class="atracao-cartao">
+          <div class="atracao-foto foto-2"></div>
+          <strong class="atracao-nome">PRIDRAG</strong>
+          <p class="atracao-texto">Confira a participação na Parada 2026.</p>
+        </article>
+        <article class="atracao-cartao">
+          <div class="atracao-foto foto-3"></div>
+          <strong class="atracao-nome">LOLLA</strong>
+          <p class="atracao-texto">Confira a participação na Parada 2026.</p>
+        </article>
+        <article class="atracao-cartao">
+          <div class="atracao-foto foto-4"></div>
+          <strong class="atracao-nome">ATRAÇÃO 4</strong>
+          <p class="atracao-texto">Confira a participação na Parada 2026.</p>
+        </article>
+        <article class="atracao-cartao">
+          <div class="atracao-foto foto-5"></div>
+          <strong class="atracao-nome">ATRAÇÃO 5</strong>
+          <p class="atracao-texto">Em breve.</p>
+        </article>
+        <article class="atracao-cartao">
+          <div class="atracao-foto foto-6"></div>
+          <strong class="atracao-nome">ATRAÇÃO 6</strong>
+          <p class="atracao-texto">Em breve.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ---------- 13. DESTAQUES (3 banners com texto por cima da foto) ---------- -->
+    <section class="destaques" id="destaques">
+
+      <!-- Banner 1: A Parada (caixa à ESQUERDA) -->
+      <article class="destaque destaque-parada destaque-esquerda">
+        <div class="destaque-cartao">
+          <h2 class="destaque-titulo">A Parada</h2>
+          <p class="destaque-texto">
+            A história da Parada do Orgulho LGBTQIAPN+ está ligada à luta por liberdade, visibilidade.
+            Embora não exista um único fundador, um acontecimento tornou-se um marco internacional:
+            a Revolta de Stonewall, em Nova York, nos Estados Unidos.
+          </p>
+          <p class="destaque-texto">
+            Antes de Stonewall, ativistas já realizavam manifestações contra a discriminação. Entre elas
+            estavam os "Annual Reminders", protestos organizados desde 1965 em Filadélfia. Portanto,
+            Stonewall não foi o início da luta LGBTQIAPN+, mas representou uma mudança na mobilização
+            do movimento.
+          </p>
+          <p class="destaque-texto">
+            Na madrugada de 28 de junho de 1969, a polícia realizou uma batida no Stonewall Inn,
+            estabelecimento frequentado por pessoas LGBTQIAPN+. Em vez de se dispersar, clientes e pessoas
+            próximas reagiram à ação policial. Os confrontos e protestos continuaram por vários dias nas
+            ruas próximas ao bar, em Christopher Street e Christopher Park.
+          </p>
+          <a href="#" class="destaque-botao">Conheça a Parada</a>
+        </div>
+      </article>
+
+      <!-- Banner 2: A Bandeira (caixa à DIREITA) -->
+      <article class="destaque destaque-bandeira destaque-direita">
+        <div class="destaque-cartao">
+          <h2 class="destaque-titulo">A Bandeira</h2>
+          <p class="destaque-texto">
+            A bandeira do arco-íris tornou-se um dos principais símbolos de orgulho, resistência e
+            representatividade da comunidade LGBTQIAPN+. Com suas cores organizadas em faixas horizontais,
+            ela está presente em manifestações, celebrações e movimentos de luta por direitos e respeito
+            em diferentes partes do mundo. Cada tonalidade possui um significado próprio, relacionado a
+            conceitos como vida, cura, natureza, harmonia e espiritualidade.
+          </p>
+          <p class="destaque-texto">
+            Celebrado em 28 de junho, o Dia Internacional do Orgulho é uma oportunidade para reconhecer a
+            história e a importância dos símbolos que representam a comunidade LGBTQIAPN+. Entre eles,
+            a bandeira do arco-íris ocupa um lugar de destaque.
+          </p>
+          <a href="#" class="destaque-botao">Conheça a Bandeira</a>
+        </div>
+      </article>
+
+      <!-- Banner 3: A História (caixa à ESQUERDA) -->
+      <article class="destaque destaque-historia destaque-esquerda">
+        <div class="destaque-cartao">
+          <h2 class="destaque-titulo">A História</h2>
+          <p class="destaque-texto">
+            A primeira bandeira do arco-íris foi criada em 1978 pelo artista norte-americano Gilbert Baker,
+            abertamente gay, ativista e drag queen. A proposta surgiu como uma forma de criar um símbolo
+            de orgulho e identidade para a comunidade LGBTQIAPN+, a partir de uma solicitação relacionada
+            ao ativista e político Harvey Milk.
+          </p>
+          <p class="destaque-texto">
+            Produzida artesanalmente, a primeira versão da bandeira foi apresentada em 25 de junho de 1978,
+            durante o desfile do Dia da Liberdade Gay, em São Francisco, nos Estados Unidos.
+          </p>
+          <a href="#" class="destaque-botao">Conheça a História</a>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER (rodapé)
+       ===================================================== -->
+  <footer class="footer">
+    <div class="faixa-arco-iris"></div>
+
+    <div class="footer-conteudo">
+
+      <div class="footer-coluna footer-coluna-marca">
+        <a href="#inicio" class="header-logo">
+          <img src="img/Logo_APAC_Letra_Branca.png" alt="">
+        </a>
+        <p class="footer-descricao">Associação da Parada e Apoio LGBT de Campinas. Cores que resistem, vozes que transformam.</p>
+      </div>
+
+      <div class="footer-coluna">
+        <h3 class="footer-titulo">Navegue</h3>
+        <a href="#inicio" class="footer-link">Início</a>
+        <a href="#sobre" class="footer-link">Sobre</a>
+        <a href="#eventos" class="footer-link">Eventos 2027</a>
+        <a href="#quem-somos" class="footer-link">Quem somos</a>
+      </div>
+
+      <div class="footer-coluna">
+        <h3 class="footer-titulo">Participe</h3>
+        <a href="#participe" class="footer-link">Ambulantes</a>
+        <a href="#participe" class="footer-link">Artistas</a>
+        <a href="#participe" class="footer-link">Voluntariado</a>
+        <a href="#apoie" class="footer-link">Doar</a>
+      </div>
+
+      <div class="footer-coluna">
+        <h3 class="footer-titulo">Contato</h3>
+        <span class="footer-link">contato@apac.org.br</span>
+        <span class="footer-link">Campinas - SP</span>
+        <div class="footer-redes">
+          <a href="#" class="footer-rede" aria-label="Instagram">IG</a>
+          <a href="#" class="footer-rede" aria-label="Facebook">FB</a>
+          <a href="#" class="footer-rede" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="footer-copyright">© 2027 APAC - Associação da Parada e Apoio LGBT de Campinas. Projeto integrador.</p>
+  </footer>
+
+  <script src="js/contador.js"></script>
+</body>
+</html>

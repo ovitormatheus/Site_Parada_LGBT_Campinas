@@ -1,0 +1,396 @@
+/* =========================================================
+   PÁGINA "GALERIA" (galeria.html)
+   Este arquivo vem DEPOIS do style.css, então usa as mesmas
+   cores (--cor-...) e o mesmo header/footer.
+
+   Organização:
+   1. Regras gerais
+   2. Título da página
+   3. Álbuns (cartões em forma de "pasta")
+   4. Pasta aberta (janela com a grade de fotos)
+   5. Visualizador (foto grande)
+   6. Responsivo
+   ========================================================= */
+
+
+/* ---------- 1. REGRAS GERAIS ---------- */
+
+/* Garante que o atributo "hidden" realmente esconda os elementos */
+[hidden] {
+  display: none !important;
+}
+
+/* Travar a rolagem da página quando a pasta está aberta (classe colocada pelo JS) */
+body.sem-rolagem {
+  overflow: hidden;
+}
+
+/* Cor rosa claro das caixas (igual ao Figma) */
+.galeria-pagina {
+  --cor-caixa-rosa: #f6dcea;
+
+  padding: 60px 24px 90px;
+  /* manchas pastel de arco-íris no fundo, só com CSS */
+  background:
+    radial-gradient(ellipse at 100% 18%, rgba(255, 214, 10, 0.18), transparent 38%),
+    radial-gradient(ellipse at 100% 24%, rgba(125, 60, 255, 0.14), transparent 42%),
+    radial-gradient(ellipse at 0% 85%, rgba(10, 132, 255, 0.12), transparent 40%),
+    radial-gradient(ellipse at 0% 90%, rgba(255, 59, 48, 0.10), transparent 36%),
+    var(--cor-branco);
+}
+
+
+/* ---------- 2. TÍTULO DA PÁGINA ---------- */
+.galeria-topo {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.galeria-titulo {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.galeria-descricao {
+  margin-top: 16px;
+  font-size: 15px;
+  color: #555;
+}
+
+
+/* ---------- 3. ÁLBUNS (cada cartão é uma pasta) ---------- */
+.galeria-albuns-caixa {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 36px;
+  border-radius: 28px;
+  background: var(--cor-caixa-rosa);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 44px 36px;
+}
+
+/* O cartão é um <button>: tiramos o visual padrão do botão */
+.album-cartao {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: var(--fonte);
+  text-align: left;
+  color: var(--cor-preto);
+  cursor: pointer;
+}
+
+/* "Pilha" de fotos: duas folhas viradas atrás da capa, lembrando uma pasta de fotos */
+.album-pilha {
+  position: relative;
+  width: 100%;
+  margin-bottom: 14px;
+  isolation: isolate;
+}
+
+.album-pilha::before,
+.album-pilha::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 12px;
+  background: var(--cor-branco);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s;
+}
+
+.album-pilha::before { transform: rotate(-3deg); }
+.album-pilha::after  { transform: rotate(3deg); }
+
+/* Ao passar o mouse, as folhas se abrem */
+.album-cartao:hover .album-pilha::before,
+.album-cartao:focus-visible .album-pilha::before { transform: rotate(-7deg) translateX(-6px); }
+
+.album-cartao:hover .album-pilha::after,
+.album-cartao:focus-visible .album-pilha::after { transform: rotate(7deg) translateX(6px); }
+
+.album-cartao:focus-visible {
+  outline: 3px solid #8a5cf0;
+  outline-offset: 8px;
+  border-radius: 12px;
+}
+
+/* CAPA DO ÁLBUM
+   A foto vem do HTML (style="--foto: url(...)"). Enquanto a foto não existir,
+   aparece o degradê arco-íris (segunda opção do background). */
+.album-capa {
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  background-image: var(--foto), linear-gradient(135deg, #ff7aa8, #ffb86b 40%, #7fd6c2 70%, #8a8cff);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.album-cartao:hover .album-capa {
+  transform: translateY(-4px);
+}
+
+.album-nome {
+  position: relative;
+  padding-bottom: 7px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Mini linha arco-íris embaixo do nome */
+.album-nome::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--arco-iris);
+  transition: width 0.3s;
+}
+
+.album-cartao:hover .album-nome::after {
+  width: 100%;
+}
+
+.album-quantidade {
+  font-size: 13px;
+  color: #6a4a60;
+}
+
+
+/* ---------- 4. PASTA ABERTA ---------- */
+
+/* Fundo escuro que cobre a página inteira */
+.pasta {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(30, 10, 60, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  animation: aparecer 0.25s ease;
+}
+
+/* A caixa rosa com as fotos (igual ao Figma) */
+.pasta-caixa {
+  width: 100%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px 28px 30px;
+  border-radius: 28px;
+  background: var(--cor-caixa-rosa, #f6dcea);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  animation: subir 0.3s ease;
+}
+
+.pasta-topo {
+  position: sticky;      /* o topo fica visível enquanto rola as fotos */
+  top: -24px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: -24px -28px 20px;
+  padding: 20px 28px 14px;
+  background: #f6dcea;
+}
+
+.pasta-voltar {
+  padding: 9px 22px;
+  border: none;
+  border-radius: 30px;
+  font-family: var(--fonte);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--cor-branco);
+  background: var(--cor-preto);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pasta-voltar:hover {
+  background: var(--cor-roxo);
+}
+
+.pasta-titulo {
+  flex: 1;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.pasta-contagem {
+  min-width: 70px;
+  font-size: 13px;
+  text-align: right;
+  color: #6a4a60;
+}
+
+/* Grade de fotos: 4 colunas */
+.pasta-conteudo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.pasta-foto {
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-image: var(--foto), linear-gradient(135deg, #ff9ec0, #ffd08a);
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Cores diferentes para as áreas reservadas enquanto não há fotos */
+.pasta-foto:nth-child(4n + 2) { background-image: var(--foto), linear-gradient(135deg, #a8c8ff, #d6b8ff); }
+.pasta-foto:nth-child(4n + 3) { background-image: var(--foto), linear-gradient(135deg, #9fe3c8, #fff0a0); }
+.pasta-foto:nth-child(4n)     { background-image: var(--foto), linear-gradient(135deg, #c9a4ff, #ff9ec0); }
+
+.pasta-foto:hover,
+.pasta-foto:focus-visible {
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+  outline: none;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ---------- 5. VISUALIZADOR (foto grande) ---------- */
+.visualizador {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px;
+  background: rgba(10, 5, 25, 0.92);
+  animation: aparecer 0.2s ease;
+}
+
+.visualizador-figura {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.visualizador-imagem {
+  width: 100%;
+  max-width: 1000px;
+  height: 75vh;
+  border-radius: 10px;
+  background-image: var(--foto), linear-gradient(135deg, #8a2be2, #ee3f9a);
+  background-size: contain;       /* a foto inteira aparece, sem cortar */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.visualizador-legenda {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #ddd;
+}
+
+.visualizador-seta,
+.visualizador-fechar {
+  border: none;
+  color: var(--cor-branco);
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.visualizador-seta:hover,
+.visualizador-fechar:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.visualizador-seta {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.visualizador-fechar {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+
+/* ---------- Animações simples ---------- */
+@keyframes aparecer {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes subir {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ---------- 6. RESPONSIVO ---------- */
+@media (max-width: 800px) {
+  .galeria-albuns-caixa {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 24px;
+    gap: 36px 24px;
+  }
+
+  .pasta-conteudo { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .galeria-pagina { padding: 40px 16px 60px; }
+  .galeria-titulo { font-size: 28px; }
+
+  .galeria-albuns-caixa { grid-template-columns: 1fr; }
+
+  .pasta { padding: 10px; }
+  .pasta-caixa { padding: 18px 16px 24px; }
+  .pasta-topo { margin: -18px -16px 16px; padding: 16px; flex-wrap: wrap; }
+  .pasta-titulo { order: 3; flex-basis: 100%; font-size: 20px; }
+  .pasta-conteudo { grid-template-columns: repeat(2, 1fr); }
+
+  /* No celular as setas ficam sobre a foto, embaixo */
+  .visualizador { flex-wrap: wrap; justify-content: center; align-content: center; }
+  .visualizador-figura { order: 1; flex-basis: 100%; }
+  .visualizador-anterior { order: 2; }
+  .visualizador-proximo { order: 3; }
+  .visualizador-imagem { height: 60vh; }
+}

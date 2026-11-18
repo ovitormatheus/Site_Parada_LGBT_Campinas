@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria | APAC - Parada LGBTQIAPN+ de Campinas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- style.css: header, footer, botões e cores (iguais ao site principal) -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- galeria.css: só o que é específico desta página -->
+  <link rel="stylesheet" href="css/galeria.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       HEADER (igual ao do site principal)
+       ===================================================== -->
+  <header class="header">
+    <div class="header-conteudo">
+
+      <a href="index.html" class="header-logo">
+        <img src="img/logo_APAC.png" alt="">
+      </a>
+
+      <nav class="header-menu">
+        <a href="index.html" class="header-menu-link">Início</a>
+        <a href="index.html#apoie" class="header-menu-link">Loja</a>
+        <a href="index.html#quem-somos" class="header-menu-link">Quem somos</a>
+        <a href="index.html#rede-apoio" class="header-menu-link">Serviços</a>
+        <a href="participe.html" class="header-menu-link">Participe</a>
+        <a href="galeria.html" class="header-menu-link">Galeria</a>
+      </nav>
+
+      <div class="header-acoes">
+        <input type="search" class="header-busca" placeholder="Buscar" aria-label="Buscar no site">
+        <a href="participe.html" class="botao botao-preto">Apoie</a>
+      </div>
+
+    </div>
+    <div class="faixa-arco-iris"></div>
+  </header>
+
+
+  <!-- =====================================================
+       MAIN (conteúdo da página)
+       ===================================================== -->
+  <main class="galeria-pagina">
+
+    <!-- ---------- 1. TÍTULO ---------- -->
+    <section class="galeria-topo">
+      <h1 class="galeria-titulo">Galeria de melhores momentos</h1>
+      <span class="linha-arco-iris linha-arco-iris-larga"></span>
+      <p class="galeria-descricao">Escolha uma pasta e reviva os registros da Parada e dos eventos da APAC.</p>
+    </section>
+
+
+    <!-- ---------- 2. ÁLBUNS (cada cartão é uma "pasta") ---------- -->
+    <section class="galeria-albuns">
+      <div class="galeria-albuns-caixa">
+
+        <button type="button" class="album-cartao" data-pasta="parada-2026" aria-label="Abrir a pasta Parada 2026">
+          <div class="album-pilha">
+            <div class="album-capa" style="--foto: url('img/galeria/parada-2026/01.jpg')"></div>
+          </div>
+          <strong class="album-nome">Parada 2026</strong>
+          <span class="album-quantidade">12 fotos</span>
+        </button>
+        <button type="button" class="album-cartao" data-pasta="parada-2025" aria-label="Abrir a pasta Parada 2025">
+          <div class="album-pilha">
+            <div class="album-capa" style="--foto: url('img/galeria/parada-2025/01.jpg')"></div>
+          </div>
+          <strong class="album-nome">Parada 2025</strong>
+          <span class="album-quantidade">12 fotos</span>
+        </button>
+        <button type="button" class="album-cartao" data-pasta="pre-parada" aria-label="Abrir a pasta Pré Parada">
+          <div class="album-pilha">
+            <div class="album-capa" style="--foto: url('img/galeria/pre-parada/01.jpg')"></div>
+          </div>
+          <strong class="album-nome">Pré Parada</strong>
+          <span class="album-quantidade">12 fotos</span>
+        </button>
+        <button type="button" class="album-cartao" data-pasta="power-after" aria-label="Abrir a pasta Power After">
+          <div class="album-pilha">
+            <div class="album-capa" style="--foto: url('img/galeria/power-after/01.jpg')"></div>
+          </div>
+          <strong class="album-nome">Power After</strong>
+          <span class="album-quantidade">12 fotos</span>
+        </button>
+        <button type="button" class="album-cartao" data-pasta="gincana" aria-label="Abrir a pasta Gincana da Diversidade">
+          <div class="album-pilha">
+            <div class="album-capa" style="--foto: url('img/galeria/gincana/01.jpg')"></div>
+          </div>
+          <strong class="album-nome">Gincana da Diversidade</strong>
+          <span class="album-quantidade">12 fotos</span>
+        </button>
+        <button type="button" class="album-cartao" data-pasta="voluntarios" aria-label="Abrir a pasta Voluntários e Bastidores">
+          <div class="album-pilha">
+            <div class="album-capa" style="--foto: url('img/galeria/voluntarios/01.jpg')"></div>
+          </div>
+          <strong class="album-nome">Voluntários e Bastidores</strong>
+          <span class="album-quantidade">12 fotos</span>
+        </button>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       PASTA ABERTA (janela que aparece ao clicar em um álbum)
+       Fica escondida (hidden) até alguém clicar.
+       ===================================================== -->
+  <div class="pasta" id="pasta" hidden>
+    <div class="pasta-caixa" role="dialog" aria-modal="true" aria-labelledby="pasta-titulo">
+
+      <div class="pasta-topo">
+        <button type="button" class="pasta-voltar" id="pasta-voltar">← Voltar</button>
+        <h2 class="pasta-titulo" id="pasta-titulo"></h2>
+        <span class="pasta-contagem" id="pasta-contagem"></span>
+      </div>
+
+      <!-- Cada pasta tem sua própria grade de fotos; o JavaScript mostra só a escolhida -->
+      <div class="pasta-grades">
+
+      <!-- Pasta: Parada 2026  (fotos em img/galeria/parada-2026/01.jpg, 02.jpg ...) -->
+      <div class="pasta-conteudo" id="pasta-parada-2026" data-titulo="Parada 2026" hidden>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2026/01.jpg')" aria-label="Foto 1 - Parada 2026"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2026/02.jpg')" aria-label="Foto 2 - Parada 2026"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2026/03.jpg')" aria-label="Foto 3 - Parada 2026"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2026/04.jpg')" aria-label="Foto 4 - Parada 2026"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2026/05.jpg')" aria-label="Foto 5 - Parada 2026"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2026/06.jpg')" aria-label="Foto 6 - Parada 2026"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2026/07.jpg')" aria-label="Foto 7 - Parada 2026"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2026/08.jpg')" aria-label="Foto 8 - Parada 2026"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2026/09.jpg')" aria-label="Foto 9 - Parada 2026"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2026/10.jpg')" aria-label="Foto 10 - Parada 2026"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2026/11.jpg')" aria-label="Foto 11 - Parada 2026"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2026/12.jpg')" aria-label="Foto 12 - Parada 2026"></button>
+      </div>
+      <!-- Pasta: Parada 2025  (fotos em img/galeria/parada-2025/01.jpg, 02.jpg ...) -->
+      <div class="pasta-conteudo" id="pasta-parada-2025" data-titulo="Parada 2025" hidden>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2025/01.jpg')" aria-label="Foto 1 - Parada 2025"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2025/02.jpg')" aria-label="Foto 2 - Parada 2025"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2025/03.jpg')" aria-label="Foto 3 - Parada 2025"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2025/04.jpg')" aria-label="Foto 4 - Parada 2025"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2025/05.jpg')" aria-label="Foto 5 - Parada 2025"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2025/06.jpg')" aria-label="Foto 6 - Parada 2025"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2025/07.jpg')" aria-label="Foto 7 - Parada 2025"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2025/08.jpg')" aria-label="Foto 8 - Parada 2025"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2025/09.jpg')" aria-label="Foto 9 - Parada 2025"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2025/10.jpg')" aria-label="Foto 10 - Parada 2025"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2025/11.jpg')" aria-label="Foto 11 - Parada 2025"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/parada-2025/12.jpg')" aria-label="Foto 12 - Parada 2025"></button>
+      </div>
+      <!-- Pasta: Pré Parada  (fotos em img/galeria/pre-parada/01.jpg, 02.jpg ...) -->
+      <div class="pasta-conteudo" id="pasta-pre-parada" data-titulo="Pré Parada" hidden>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/pre-parada/01.jpg')" aria-label="Foto 1 - Pré Parada"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/pre-parada/02.jpg')" aria-label="Foto 2 - Pré Parada"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/pre-parada/03.jpg')" aria-label="Foto 3 - Pré Parada"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/pre-parada/04.jpg')" aria-label="Foto 4 - Pré Parada"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/pre-parada/05.jpg')" aria-label="Foto 5 - Pré Parada"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/pre-parada/06.jpg')" aria-label="Foto 6 - Pré Parada"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/pre-parada/07.jpg')" aria-label="Foto 7 - Pré Parada"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/pre-parada/08.jpg')" aria-label="Foto 8 - Pré Parada"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/pre-parada/09.jpg')" aria-label="Foto 9 - Pré Parada"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/pre-parada/10.jpg')" aria-label="Foto 10 - Pré Parada"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/pre-parada/11.jpg')" aria-label="Foto 11 - Pré Parada"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/pre-parada/12.jpg')" aria-label="Foto 12 - Pré Parada"></button>
+      </div>
+      <!-- Pasta: Power After  (fotos em img/galeria/power-after/01.jpg, 02.jpg ...) -->
+      <div class="pasta-conteudo" id="pasta-power-after" data-titulo="Power After" hidden>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/power-after/01.jpg')" aria-label="Foto 1 - Power After"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/power-after/02.jpg')" aria-label="Foto 2 - Power After"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/power-after/03.jpg')" aria-label="Foto 3 - Power After"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/power-after/04.jpg')" aria-label="Foto 4 - Power After"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/power-after/05.jpg')" aria-label="Foto 5 - Power After"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/power-after/06.jpg')" aria-label="Foto 6 - Power After"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/power-after/07.jpg')" aria-label="Foto 7 - Power After"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/power-after/08.jpg')" aria-label="Foto 8 - Power After"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/power-after/09.jpg')" aria-label="Foto 9 - Power After"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/power-after/10.jpg')" aria-label="Foto 10 - Power After"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/power-after/11.jpg')" aria-label="Foto 11 - Power After"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/power-after/12.jpg')" aria-label="Foto 12 - Power After"></button>
+      </div>
+      <!-- Pasta: Gincana da Diversidade  (fotos em img/galeria/gincana/01.jpg, 02.jpg ...) -->
+      <div class="pasta-conteudo" id="pasta-gincana" data-titulo="Gincana da Diversidade" hidden>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/gincana/01.jpg')" aria-label="Foto 1 - Gincana da Diversidade"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/gincana/02.jpg')" aria-label="Foto 2 - Gincana da Diversidade"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/gincana/03.jpg')" aria-label="Foto 3 - Gincana da Diversidade"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/gincana/04.jpg')" aria-label="Foto 4 - Gincana da Diversidade"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/gincana/05.jpg')" aria-label="Foto 5 - Gincana da Diversidade"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/gincana/06.jpg')" aria-label="Foto 6 - Gincana da Diversidade"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/gincana/07.jpg')" aria-label="Foto 7 - Gincana da Diversidade"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/gincana/08.jpg')" aria-label="Foto 8 - Gincana da Diversidade"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/gincana/09.jpg')" aria-label="Foto 9 - Gincana da Diversidade"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/gincana/10.jpg')" aria-label="Foto 10 - Gincana da Diversidade"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/gincana/11.jpg')" aria-label="Foto 11 - Gincana da Diversidade"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/gincana/12.jpg')" aria-label="Foto 12 - Gincana da Diversidade"></button>
+      </div>
+      <!-- Pasta: Voluntários e Bastidores  (fotos em img/galeria/voluntarios/01.jpg, 02.jpg ...) -->
+      <div class="pasta-conteudo" id="pasta-voluntarios" data-titulo="Voluntários e Bastidores" hidden>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/voluntarios/01.jpg')" aria-label="Foto 1 - Voluntários e Bastidores"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/voluntarios/02.jpg')" aria-label="Foto 2 - Voluntários e Bastidores"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/voluntarios/03.jpg')" aria-label="Foto 3 - Voluntários e Bastidores"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/voluntarios/04.jpg')" aria-label="Foto 4 - Voluntários e Bastidores"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/voluntarios/05.jpg')" aria-label="Foto 5 - Voluntários e Bastidores"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/voluntarios/06.jpg')" aria-label="Foto 6 - Voluntários e Bastidores"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/voluntarios/07.jpg')" aria-label="Foto 7 - Voluntários e Bastidores"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/voluntarios/08.jpg')" aria-label="Foto 8 - Voluntários e Bastidores"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/voluntarios/09.jpg')" aria-label="Foto 9 - Voluntários e Bastidores"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/voluntarios/10.jpg')" aria-label="Foto 10 - Voluntários e Bastidores"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/voluntarios/11.jpg')" aria-label="Foto 11 - Voluntários e Bastidores"></button>
+        <button type="button" class="pasta-foto" style="--foto: url('img/galeria/voluntarios/12.jpg')" aria-label="Foto 12 - Voluntários e Bastidores"></button>
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =====================================================
+       VISUALIZADOR (foto grande, ao clicar em uma foto da pasta)
+       ===================================================== -->
+  <div class="visualizador" id="visualizador" hidden>
+    <button type="button" class="visualizador-fechar" id="visualizador-fechar" aria-label="Fechar foto">✕</button>
+    <button type="button" class="visualizador-seta visualizador-anterior" id="visualizador-anterior" aria-label="Foto anterior">‹</button>
+
+    <figure class="visualizador-figura">
+      <div class="visualizador-imagem" id="visualizador-imagem" role="img"></div>
+      <figcaption class="visualizador-legenda" id="visualizador-legenda"></figcaption>
+    </figure>
+
+    <button type="button" class="visualizador-seta visualizador-proximo" id="visualizador-proximo" aria-label="Próxima foto">›</button>
+  </div>
+
+
+  <!-- =====================================================
+       FOOTER (igual ao do site principal)
+       ===================================================== -->
+  <footer class="footer">
+    <div class="faixa-arco-iris"></div>
+
+    <div class="footer-conteudo">
+
+      <div class="footer-coluna footer-coluna-marca">
+        <a href="index.html#inicio" class="header-logo">
+          <img src="img/Logo_APAC_Letra_Branca.png" alt="">
+        </a>
+        <p class="footer-descricao">Associação da Parada e Apoio LGBT de Campinas. Cores que resistem, vozes que transformam.</p>
+      </div>
+
+      <div class="footer-coluna">
+        <h3 class="footer-titulo">Navegue</h3>
+        <a href="index.html#inicio" class="footer-link">Início</a>
+        <a href="index.html#sobre" class="footer-link">Sobre</a>
+        <a href="index.html#eventos" class="footer-link">Eventos 2027</a>
+        <a href="galeria.html" class="footer-link">Galeria</a>
+      </div>
+
+      <div class="footer-coluna">
+        <h3 class="footer-titulo">Participe</h3>
+        <a href="participe.html" class="footer-link">Cadastro</a>
+        <a href="index.html#apoie" class="footer-link">Doar</a>
+      </div>
+
+      <div class="footer-coluna">
+        <h3 class="footer-titulo">Contato</h3>
+        <span class="footer-link">contato@apac.org.br</span>
+        <span class="footer-link">Campinas - SP</span>
+        <div class="footer-redes">
+          <a href="#" class="footer-rede" aria-label="Instagram">IG</a>
+          <a href="#" class="footer-rede" aria-label="Facebook">FB</a>
+          <a href="#" class="footer-rede" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="footer-copyright">© 2027 APAC - Associação da Parada e Apoio LGBT de Campinas. Projeto integrador.</p>
+  </footer>
+
+  <script src="js/galeria.js"></script>
+</body>
+</html>
